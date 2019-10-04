@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.text.ParseException;
 import java.time.LocalDate;
 
 @Transactional
@@ -23,7 +22,7 @@ public class CommentService {
         return comment;
     }
 
-    public Comment getCommentByDate (String inputDate) throws ParseException {
+    public Comment getCommentByDate (String inputDate){
         LocalDate tmpDate = LocalDate.parse(inputDate);
 
         return  repo.getCommentByDate(tmpDate);

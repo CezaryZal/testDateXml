@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.text.ParseException;
 import java.time.LocalDate;
 
 @RestController
@@ -37,7 +36,7 @@ public class CommentController {
 
 
     @GetMapping("/byDate/{date}")
-    public Comment getCommentByDate (@PathVariable String date) throws ParseException {
+    public Comment getCommentByDate (@PathVariable String date){
         Comment comment = commentService.getCommentByDate(date);
 
         return comment;
