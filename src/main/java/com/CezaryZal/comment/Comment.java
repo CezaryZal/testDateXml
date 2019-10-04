@@ -9,7 +9,7 @@ public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column(name = "id")
     private int id;
 
     @Column(name = "nr_token")

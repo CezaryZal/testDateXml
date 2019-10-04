@@ -1,8 +1,5 @@
 package com.CezaryZal.comment;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -19,20 +16,10 @@ import java.util.GregorianCalendar;
 @Repository
 public class CommentRepository {
 
-//    private SessionFactory sessionFactory;
-//
-//    @Autowired
-//    public CommentRepository(SessionFactory sessionFactory) {
-//        this.sessionFactory = sessionFactory;
-//    }
-
     @PersistenceContext
     private EntityManager entityManager;
 
     public Comment findById (int id){
-//        Session curSession = sessionFactory.getCurrentSession();
-//        Comment comment = curSession.get(Comment.class, id);
-
         Comment comment = entityManager.find(Comment.class, id);
 
         return comment;

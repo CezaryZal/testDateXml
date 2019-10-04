@@ -18,7 +18,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import javax.persistence.EntityManagerFactory;
-import javax.validation.Validator;
 import java.util.Locale;
 
 @Configuration
@@ -45,15 +44,15 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         return new JpaTransactionManager(emf);
     }
 
-    @Bean
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-
-        viewResolver.setPrefix("/views/");
-        viewResolver.setSuffix(".jsp");
-        return viewResolver;
-    }
+//    @Bean
+//    public ViewResolver viewResolver() {
+//        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+//        viewResolver.setViewClass(JstlView.class);
+//
+//        viewResolver.setPrefix("/views/");
+//        viewResolver.setSuffix(".jsp");
+//        return viewResolver;
+//    }
 
     @Bean(name = "localeResolver")
     public LocaleContextResolver getLocaleContextResolver() {
@@ -62,8 +61,4 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         return localeResolver;
     }
 
-    @Bean
-    public Validator validator() {
-        return new LocalValidatorFactoryBean();
-    }
 }

@@ -29,10 +29,10 @@ public class CommentService {
         return  repo.getCommentByDate(tmpDate);
     }
 
-    public int getNumber(){
+    public int create(){
 
-        Comment comment = new Comment(2, LocalDate.of(2018, 05, 23), 3);
-        comment.setId(0);
+        Comment comment = new Comment(5, LocalDate.of(2018, 05, 25), 6);
+        comment.setId(2);
 
 //        repo.uptabe();
         repo.save(comment);
