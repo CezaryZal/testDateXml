@@ -51,8 +51,10 @@ public class CommentRepository {
 //        query.setParameter("inputDate", tmpDate);
 //        Comment comment = query.getSingleResult();
 
-        Comment comment = new Comment();
+        Query query = entityManager.createQuery("SELECT c FROM Comment c WHERE localDate=:inputDate");
+        query.setParameter("inputDate", tmpDate);
 
+        Comment comment = (Comment) query.getSingleResult();
         return comment;
     }
 

@@ -20,19 +20,6 @@ public class CommentController {
         this.commentService = commentService;
     }
 
-    @GetMapping("/id/{nrId}")
-    public Comment getComment (@PathVariable int nrId){
-        Comment comment = commentService.findById(nrId);
-
-        return comment;
-    }
-
-    @GetMapping("/id1")
-    public Comment getCommentId1 (){
-        Comment comment = commentService.findById(1);
-
-        return comment;
-    }
 
     @GetMapping("/inside")
     public Comment getCommentInside (){
@@ -40,6 +27,14 @@ public class CommentController {
         comment.setId(1);
         return comment;
     }
+
+    @GetMapping("/id/{nrId}")
+    public Comment getComment (@PathVariable int nrId){
+        Comment comment = commentService.findById(nrId);
+
+        return comment;
+    }
+
 
     @GetMapping("/byDate/{date}")
     public Comment getCommentByDate (@PathVariable String date) throws ParseException {
@@ -49,7 +44,8 @@ public class CommentController {
     }
 
     @GetMapping("/create")
-    public int getNumber (){
+    public int createManualRecord (){
+        //getNubmer to approve method
         int number = commentService.create();
         return number;
     }

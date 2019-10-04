@@ -30,11 +30,10 @@ public class CommentService {
     }
 
     public int create(){
-
         Comment comment = new Comment(5, LocalDate.of(2018, 05, 25), 6);
-        comment.setId(2);
+        //must by 0!
+        comment.setId(0);
 
-//        repo.uptabe();
         repo.save(comment);
 
         return 2;
