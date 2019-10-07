@@ -1,10 +1,7 @@
 package com.CezaryZal.comment;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 
@@ -42,10 +39,10 @@ public class CommentController {
         return comment;
     }
 
-    @GetMapping("/create")
-    public int createManualRecord (){
+    @PostMapping("/create")
+    public String addComment(@RequestBody Comment comment){
         //getNubmer to approve method
-        int number = commentService.create();
-        return number;
+        String answer = commentService.create(comment);
+        return answer;
     }
 }
